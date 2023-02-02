@@ -1,3 +1,4 @@
+
 .container-fluid {
     display: contents;
 }
@@ -63,3 +64,25 @@
       opacity: 1.0;
       filter: alpha(opacity=100); /* For IE8 and earlier */
   }
+
+.smallIcon{
+    height: 30px;
+    width: 30px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+table {
+    width: 100%;
+  }
+
+.td:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
