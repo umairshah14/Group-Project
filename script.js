@@ -50,19 +50,28 @@ $.ajax(settings).done(function (response) {
     var table = $(".table");
 
     // CREATING THE HEADERS FOR EACH OF THE COLUMNS
-    var teamPosTitle = $("<th>");
-    var teamBadgeTitle = $("<th>");
-    var teamNameTitle = $("<th>");
-    var teamPointsTitle = $("<th>");
-    var totalPlayedTitle = $("<th>");
+    var teamPosTitle = $("<td>")
+    var teamBadgeTitle = $("<td>");
+    var teamNameTitle = $("<td>");
+    var teamPointsTitle = $("<td>");
+    var totalPlayedTitle = $("<td>");
+    var gamesWonTitle = $("<td>");
+    var gamesDrawnTitle = $("<td>");
+    var gamesLostTitle = $("<td>");
+    var lastFiveTitle = $("<td>");
 
     // APPENDING THE HEADERS TO EACH OF THE COLUMNS
-    teamPosTitle.text("Position")
-    teamBadgeTitle.text("Badge")
+    teamPosTitle.text("Pos")
+    teamBadgeTitle.text("Club")
     teamNameTitle.text("Name")
     teamPointsTitle.text("Points")
     totalPlayedTitle.text("Total Played")
-    table.append(teamPosTitle, teamBadgeTitle, teamNameTitle, teamPointsTitle, totalPlayedTitle)
+    gamesWonTitle.text("Won")
+    gamesDrawnTitle.text("Drawn")
+    gamesLostTitle.text("Lost")
+    lastFiveTitle.text("Last Five")
+
+    table.append(teamPosTitle, teamBadgeTitle, teamNameTitle, teamPointsTitle, totalPlayedTitle, gamesWonTitle, gamesLostTitle, gamesDrawnTitle, lastFiveTitle)
     for (var i = 0; i < response.response[0].league.standings[0].length; i++) {
     // console.log(response.response[0].league.standings[0][i].rank);
   
@@ -71,6 +80,10 @@ $.ajax(settings).done(function (response) {
     var teamName = $("<td>");
     var teamPoints = $("<td>");
     var totalMatchesPlayed = $("<td>");
+    var gamesWon = $("<td>");
+    var gamesDrawn = $("<td>");
+    var gamesLost = $("<td>");
+    var lastFive = $("<td>");
 
       tr[i] = $("<tr>")
       teamPosition.text(response.response[0].league.standings[0][i].rank);
@@ -86,7 +99,15 @@ $.ajax(settings).done(function (response) {
       tr[i].append(teamPoints)
       totalMatchesPlayed.text(response.response[0].league.standings[0][i].all.played);
       tr[i].append(totalMatchesPlayed)
-  
+      gamesWon.text(response.response[0].league.standings[0][i].all.win)
+      tr[i].append(gamesWon)
+      gamesDrawn.text(response.response[0].league.standings[0][i].all.draw)
+      tr[i].append(gamesDrawn)
+      gamesLost.text(response.response[0].league.standings[0][i].all.lose)
+      tr[i].append(gamesLost)
+      lastFive.text(response.response[0].league.standings[0][i].form)
+      tr[i].append(lastFive)
+
       table.append(tr[i]);
     }
 
