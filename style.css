@@ -1,0 +1,23 @@
+.smallIcon{
+    height: 30px;
+    width: 30px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+table {
+    width: 100%;
+  }
+
+.td:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.wpos{
+	text-align: center;
+}
