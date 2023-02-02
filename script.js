@@ -1,39 +1,4 @@
 
-// queryURL = "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=d2340580-a272-11ed-aa66-8567d5b358d3&season_id=237"
-
-
-// $.ajax({
-//     url : queryURL,
-//     method : "GET"
-// }).then(function (response) {
-//   console.log(response.data.standings);
-//   var tablearea = $(".tablearea");
-//   var table = $("<table>");
-
-//   var tr = [];
-//   var teamPosition = $("<td>");
-//   var teamName = $("<td>");
-//   var teamLogo = $("<td>");
-//   var teamPoints = $("<td>");
-//   var totalMatchesPlayed = $("<td>");
-
-//   for (var i = 0; i < response.length; i++) {
-//     tr[i] = $("<tr>");
-//     tr[i].append(teamPosition).text(response[i].Position);
-//     tr[i].append(teamName).text(response[i].Name);
-//     var teamIconLink = response[i].SquadLogo;
-//     var teamImg = $("<img>").attr("src", teamIconLink);
-//     tr[i].append(teamImg);
-//     tr[i].append(teamPoints).text(response[i].Points);
-//     tr[i].append(totalMatchesPlayed).text(response[i].Played);
-
-//     table.append(tr[i]);
-//   }
-
-//   tablearea.append(table);
-// });
-
-
 const settings = {
 	"async": true,
 	"crossDomain": true,
@@ -60,17 +25,19 @@ $.ajax(settings).done(function (response) {
     var gamesDrawnTitle = $("<td>");
     var gamesLostTitle = $("<td>");
     var lastFiveTitle = $("<td>");
+    var teamInfoTitle = $("<td>");
 
     // APPENDING THE HEADERS TO EACH OF THE COLUMNS
-    teamPosTitle.text("Pos")
-    teamBadgeTitle.text("Club")
-    teamNameTitle.text("Name")
-    teamPointsTitle.text("Points")
-    totalPlayedTitle.text("Total Played")
-    gamesWonTitle.text("Won")
-    gamesDrawnTitle.text("Drawn")
-    gamesLostTitle.text("Lost")
-    lastFiveTitle.text("Last Five")
+    teamPosTitle.text("Pos");
+    teamBadgeTitle.text("Club");
+    teamNameTitle.text("Name");
+    teamPointsTitle.text("Points");
+    totalPlayedTitle.text("Total Played");
+    gamesWonTitle.text("Won");
+    gamesDrawnTitle.text("Drawn");
+    gamesLostTitle.text("Lost");
+    lastFiveTitle.text("Last Five");
+    teamInfoTitle.text("Team Info");
 
     table.append(teamPosTitle, teamBadgeTitle, teamNameTitle, teamPointsTitle, totalPlayedTitle, gamesWonTitle, gamesLostTitle, gamesDrawnTitle, lastFiveTitle)
     for (var i = 0; i < response.response[0].league.standings[0].length; i++) {
@@ -85,6 +52,7 @@ $.ajax(settings).done(function (response) {
     var gamesDrawn = $("<td>");
     var gamesLost = $("<td>");
     var lastFive = $("<td>");
+    var teamInfo = $("<button>");
 
       tr[i] = $("<tr>")
       teamPosition.text(response.response[0].league.standings[0][i].rank);
@@ -108,9 +76,36 @@ $.ajax(settings).done(function (response) {
       tr[i].append(gamesLost)
       lastFive.text(response.response[0].league.standings[0][i].form)
       tr[i].append(lastFive)
+      teamInfo.text("Info")
+          .attr("data-id",response.response[0].league.standings[0][i].team.id)
+          .addClass("info").attr("data-toggle", "modal").attr("data-target","#teamInfoModal");
+      tr[i].append(teamInfo);
 
       table.append(tr[i]);
     }
+
+    $(".info").on("click", function(e) {
+      console.log("Here");
+      var element = e.target.getAttribute("data-id");
+      const request = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api-football-v1.p.rapidapi.com/v3/teams?id=" + element,
+        "method": "GET",
+        "headers": {
+          "X-RapidAPI-Key": "f7b94b1a54msh3c3038557e37090p1526ecjsna94e501ae6dc",
+          "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+        }
+      };
+    
+      $.ajax(request).done(function(resp) {
+        $("#teamNameModal").text(resp.response[0].team.name);
+        $("#teamLogoModal").attr("src",resp.response[0].team.logo).addClass("smallIcon");
+        $("#stadNameModal").text("Stadium Name: " + resp.response[0].venue.name);
+        $("#teamCityModal").text("Stadium City: " +resp.response[0].venue.city);
+        $("#teamCodeModal").text("Team Code: " +resp.response[0].team.code);
+      })
+    })
 
 });
 
