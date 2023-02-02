@@ -76,7 +76,9 @@ $.ajax(settings).done(function (response) {
       tr[i].append(gamesLost)
       lastFive.text(response.response[0].league.standings[0][i].form)
       tr[i].append(lastFive)
-      teamInfo.text("Info").attr("data-id",response.response[0].league.standings[0][i].team.id).addClass("info");
+      teamInfo.text("Info")
+          .attr("data-id",response.response[0].league.standings[0][i].team.id)
+          .addClass("info").attr("data-toggle", "modal").attr("data-target","#teamInfoModal");
       tr[i].append(teamInfo);
 
       table.append(tr[i]);
@@ -97,7 +99,11 @@ $.ajax(settings).done(function (response) {
       };
     
       $.ajax(request).done(function(resp) {
-        console.log(resp);
+        $("#teamNameModal").text(resp.response[0].team.name);
+        $("#teamLogoModal").attr("src",resp.response[0].team.logo).addClass("smallIcon");
+        $("#stadNameModal").text("Stadium Name: " + resp.response[0].venue.name);
+        $("#teamCityModal").text("Stadium City: " +resp.response[0].venue.city);
+        $("#teamCodeModal").text("Team Code: " +resp.response[0].team.code);
       })
     })
 
