@@ -130,3 +130,10 @@ table {
     align-content: center;
 }
 
+.relegation{
+    background-color: #f8d7da;
+}
+
+.promotion{
+    background-color: #d4edda;
+}

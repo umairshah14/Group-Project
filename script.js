@@ -82,6 +82,13 @@ $.ajax(settings).done(function (response) {
       tr[i].append(teamInfo);
 
       table.append(tr[i]);
+
+      if (response.response[0].league.standings[0][i].description === "Relegation - Championship"){
+        tr[i].addClass("relegation")
+      }else if (response.response[0].league.standings[0][i].description === "Promotion - Champions League (Group Stage)"){
+        tr[i].addClass("promotion")
+      }
+
     }
 
     $(".info").on("click", function(e) {
