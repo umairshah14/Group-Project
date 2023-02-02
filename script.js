@@ -1,3 +1,4 @@
+
 // queryURL = "https://app.sportdataapi.com/api/v1/soccer/standings?apikey=d2340580-a272-11ed-aa66-8567d5b358d3&season_id=237"
 
 
@@ -112,3 +113,4 @@ $.ajax(settings).done(function (response) {
     }
 
 });
+
