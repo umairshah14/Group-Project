@@ -83,6 +83,7 @@ $.ajax(settings).done(function (response) {
 
       table.append(tr[i]);
 
+      // HIGHLIGHTS TEAMS BEING PROMOTED OR RELEGATED IN ACCORDING COLORS
       if (response.response[0].league.standings[0][i].description === "Relegation - Championship"){
         tr[i].addClass("relegation")
       }else if (response.response[0].league.standings[0][i].description === "Promotion - Champions League (Group Stage)"){
