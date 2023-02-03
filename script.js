@@ -125,5 +125,5 @@ $(".submit-btn").on("click", function() {
   if(localStorage.getItem("favTeam") !== null) {
     $(".card-title").text("Favourite Team " + localStorage.getItem("favTeam"));
   }
+  $(".fave-team").val("");
 })
-
