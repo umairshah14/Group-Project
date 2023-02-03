@@ -106,7 +106,7 @@ $.ajax(settings).done(function (response) {
     
       $.ajax(request).done(function(resp) {
         $("#teamNameModal").text(resp.response[0].team.name);
-        $("#teamLogoModal").attr("src",resp.response[0].team.logo).addClass("smallIcon");
+        $("#teamLogoModal").attr("src",resp.response[0].team.logo).addClass("largeIcon");
         $("#stadNameModal").text("Stadium Name: " + resp.response[0].venue.name);
         $("#teamCityModal").text("Stadium City: " +resp.response[0].venue.city);
         $("#teamCodeModal").text("Team Code: " +resp.response[0].team.code);
@@ -127,3 +127,23 @@ $(".submit-btn").on("click", function() {
   }
   $(".fave-team").val("");
 })
+
+var giphyURL = "https://api.giphy.com/v1/gifs/search?&q=premierleague&api_key=2kOmKpYTiUlrDGZjUdtf3NJ6MfIg8snc";
+
+var gifsDiv = $(".gifs")
+
+$.ajax({
+  url: giphyURL,
+  method: "GET",
+}).then(function(response) {
+  console.log(response);
+  
+
+  for (let i = 12; i <= 18; i++) {
+    var giphURL = response.data[i].images.fixed_height.url
+    var displayedGif = $("<img/>")
+    displayedGif.attr("src", giphURL)
+    $(".gifs").append(displayedGif)
+  }
+});
+
