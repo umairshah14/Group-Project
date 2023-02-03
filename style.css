@@ -1,4 +1,4 @@
-/* Header Styling */
+/* HEADER */
 
 .title {
     display:flex;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
 }
-/* search bar stying */
+/* SEARCH BAR */
 
 #team-input {
     padding-left: 20px;
@@ -29,7 +29,7 @@
     border-radius: 8px;
 }
 
-/* button styling */
+/* FAVE TEAM BTN  */
 
 .submit-btn {
   background-color: #3D195B; 
@@ -42,6 +42,8 @@
   display: inline-block;
   font-size: 16px;
 }
+
+/* MODAL */
 
 .container-fluid {
     display: contents;
@@ -72,8 +74,18 @@
   #social-wrapper {
       text-align: center;
   }
+
+  .modal-body {
+    display:inline-block;
+    text-align: center;
+    
+  }
+
+  .modal-header {
+    display:flex;
+  }
   
-  /*Social Media Icons*/
+  /* SOCIAL MEDIA ICONS */
   .social-wrapper {
       text-align: center;
   }
@@ -154,3 +166,17 @@ table {
     background: rgb(0, 0, 0);
   }
   
+  /* TEAM INFO BTN */
+
+  .info {
+  background-color: #3D195B; 
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 6px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  }
+
