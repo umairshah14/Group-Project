@@ -41,7 +41,6 @@ $.ajax(settings).done(function (response) {
 
     table.append(teamPosTitle, teamBadgeTitle, teamNameTitle, teamPointsTitle, totalPlayedTitle, gamesWonTitle, gamesLostTitle, gamesDrawnTitle, lastFiveTitle)
     for (var i = 0; i < response.response[0].league.standings[0].length; i++) {
-    // console.log(response.response[0].league.standings[0][i].rank);
   
     var tr = [];
     var teamPosition = $("<td>");
@@ -93,7 +92,6 @@ $.ajax(settings).done(function (response) {
     }
 
     $(".info").on("click", function(e) {
-      console.log("Here");
       var element = e.target.getAttribute("data-id");
       const request = {
         "async": true,
@@ -127,6 +125,5 @@ $(".submit-btn").on("click", function() {
   if(localStorage.getItem("favTeam") !== null) {
     $(".card-title").text("Favourite Team " + localStorage.getItem("favTeam"));
   }
-  console.log(localStorage.getItem("favTeam"));
 })
 
