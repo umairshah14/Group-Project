@@ -114,7 +114,8 @@ $.ajax(settings).done(function (response) {
     })
 
     if(localStorage.getItem("favTeam") !== null) {
-      $(".card-title").text("Favourite Team: " + localStorage.getItem("favTeam"));
+      $("#favCard").attr("style","display: block;");
+      $(".card-title").text("Favourite Team:  " + localStorage.getItem("favTeam"));
     }
 
 });
@@ -123,7 +124,8 @@ $(".submit-btn").on("click", function() {
   var theTeam = $(".fave-team").val().trim();
   localStorage.setItem("favTeam", theTeam);
   if(localStorage.getItem("favTeam") !== null) {
-    $(".card-title").text("Favourite Team: " + localStorage.getItem("favTeam"));
+    $("#favCard").attr("style","display: block;");
+    $(".card-title").text("Favourite Team:  " + localStorage.getItem("favTeam"));
   }
   $(".fave-team").val("");
 })
