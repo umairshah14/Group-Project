@@ -117,3 +117,21 @@ $.ajax(settings).done(function (response) {
 
 });
 
+var giphyURL = "https://api.giphy.com/v1/gifs/search?&q=premierleague&api_key=2kOmKpYTiUlrDGZjUdtf3NJ6MfIg8snc";
+
+var gifsDiv = $(".gifs")
+
+$.ajax({
+  url: giphyURL,
+  method: "GET",
+}).then(function(response) {
+  console.log(response);
+  
+
+  for (let i = 0; i <= 4; i++) {
+    var giphURL = response.data[i].images.fixed_height.url
+    var displayedGif = $("<img/>")
+    displayedGif.attr("src", giphURL)
+    $(".gifs").append(displayedGif)
+  }
+});
