@@ -115,13 +115,17 @@ $.ajax(settings).done(function (response) {
       })
     })
 
+    if(localStorage.getItem("favTeam") !== null) {
+      $(".card-title").text("Favourite Team " + localStorage.getItem("favTeam"));
+    }
+
 });
 
 $(".submit-btn").on("click", function() {
   var theTeam = $(".fave-team").val().trim();
   localStorage.setItem("favTeam", theTeam);
   if(localStorage.getItem("favTeam") !== null) {
-    $(".displaytheTeam").text(ocalStorage.getItem("favTeam"));
+    $(".card-title").text("Favourite Team " + localStorage.getItem("favTeam"));
   }
   console.log(localStorage.getItem("favTeam"));
 })
