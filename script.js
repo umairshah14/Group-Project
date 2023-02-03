@@ -108,7 +108,7 @@ $.ajax(settings).done(function (response) {
     
       $.ajax(request).done(function(resp) {
         $("#teamNameModal").text(resp.response[0].team.name);
-        $("#teamLogoModal").attr("src",resp.response[0].team.logo).addClass("smallIcon");
+        $("#teamLogoModal").attr("src",resp.response[0].team.logo).addClass("largeIcon");
         $("#stadNameModal").text("Stadium Name: " + resp.response[0].venue.name);
         $("#teamCityModal").text("Stadium City: " +resp.response[0].venue.city);
         $("#teamCodeModal").text("Team Code: " +resp.response[0].team.code);
