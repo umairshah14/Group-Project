@@ -1,5 +1,9 @@
 /* HEADER */
 
+body{ 
+    overflow-x :hidden; 
+    } 
+
 .title {
     display:flex;
     justify-content:center;
@@ -166,6 +170,7 @@ table {
     background: rgb(0, 0, 0);
   }
   
+
   /* TEAM INFO BTN */
 
   .info {
@@ -179,4 +184,11 @@ table {
   display: inline-block;
   font-size: 16px;
   }
+
+
+.gifs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
