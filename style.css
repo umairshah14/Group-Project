@@ -27,6 +27,8 @@ body{
 #team-input {
     padding-left: 20px;
     padding-bottom: 20px;
+    align-items: center;
+    align-content: center;
 }
 
 .fave-team {
@@ -194,3 +196,22 @@ table {
     align-items: center;
 }
 
+.card2{
+    float: right;
+}
+
+.favTeam{
+    /* background-color: #3D195B;  */
+    border: solid;
+    border-radius: 8px;
+    color: white;
+    /* padding: 9px 30px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+}
