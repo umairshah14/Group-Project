@@ -119,6 +119,10 @@ $.ajax(settings).done(function (response) {
 
 $(".submit-btn").on("click", function() {
   var theTeam = $(".fave-team").val().trim();
-  console.log(theTeam);
+  localStorage.setItem("favTeam", theTeam);
+  if(localStorage.getItem("favTeam") !== null) {
+    $(".displaytheTeam").text(ocalStorage.getItem("favTeam"));
+  }
+  console.log(localStorage.getItem("favTeam"));
 })
 
