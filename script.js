@@ -128,7 +128,7 @@ $.ajax({
   console.log(response);
   
 
-  for (let i = 0; i <= 4; i++) {
+  for (let i = 12; i <= 18; i++) {
     var giphURL = response.data[i].images.fixed_height.url
     var displayedGif = $("<img/>")
     displayedGif.attr("src", giphURL)
