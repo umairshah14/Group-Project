@@ -41,7 +41,6 @@ $.ajax(settings).done(function (response) {
 
     table.append(teamPosTitle, teamBadgeTitle, teamNameTitle, teamPointsTitle, totalPlayedTitle, gamesWonTitle, gamesLostTitle, gamesDrawnTitle, lastFiveTitle)
     for (var i = 0; i < response.response[0].league.standings[0].length; i++) {
-    // console.log(response.response[0].league.standings[0][i].rank);
   
     var tr = [];
     var teamPosition = $("<td>");
@@ -93,7 +92,6 @@ $.ajax(settings).done(function (response) {
     }
 
     $(".info").on("click", function(e) {
-      console.log("Here");
       var element = e.target.getAttribute("data-id");
       const request = {
         "async": true,
@@ -115,7 +113,20 @@ $.ajax(settings).done(function (response) {
       })
     })
 
+    if(localStorage.getItem("favTeam") !== null) {
+      $(".card-title").text("Favourite Team " + localStorage.getItem("favTeam"));
+    }
+
 });
+
+$(".submit-btn").on("click", function() {
+  var theTeam = $(".fave-team").val().trim();
+  localStorage.setItem("favTeam", theTeam);
+  if(localStorage.getItem("favTeam") !== null) {
+    $(".card-title").text("Favourite Team " + localStorage.getItem("favTeam"));
+  }
+  $(".fave-team").val("");
+})
 
 var giphyURL = "https://api.giphy.com/v1/gifs/search?&q=premierleague&api_key=2kOmKpYTiUlrDGZjUdtf3NJ6MfIg8snc";
 
@@ -135,3 +146,4 @@ $.ajax({
     $(".gifs").append(displayedGif)
   }
 });
+
