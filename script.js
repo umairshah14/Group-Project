@@ -117,3 +117,8 @@ $.ajax(settings).done(function (response) {
 
 });
 
+$(".submit-btn").on("click", function() {
+  var theTeam = $(".fave-team").val().trim();
+  console.log(theTeam);
+})
+
