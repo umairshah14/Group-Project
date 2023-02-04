@@ -121,7 +121,7 @@ $.ajax(settings).done(function (response) {
 });
 
 $(".submit-btn").on("click", function() {
-  var theTeam = $(".fave-team").val().trim();
+  var theTeam = $(".fave-team").val().trim().toUpperCase();
   localStorage.setItem("favTeam", theTeam);
   if(localStorage.getItem("favTeam") !== null) {
     $("#favCard").attr("style","display: block;");
