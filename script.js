@@ -10,9 +10,8 @@ const settings = {
 	}
 };
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
-    
+// FIRST API CALL TO GENERATE TABLE AS WELL AS FILL IN MODAL INFO
+$.ajax(settings).done(function (response) {    
     var table = $(".table");
 
     // CREATING THE HEADERS FOR EACH OF THE COLUMNS
@@ -27,7 +26,7 @@ $.ajax(settings).done(function (response) {
     var lastFiveTitle = $("<td>");
     var teamInfoTitle = $("<td>");
 
-    // APPENDING THE HEADERS TO EACH OF THE COLUMNS
+    // FILLING IN THE TEXT FOR EACH OF THE HEADERS
     teamPosTitle.text("Pos");
     teamBadgeTitle.text("Club");
     teamNameTitle.text("Name");
@@ -39,7 +38,10 @@ $.ajax(settings).done(function (response) {
     lastFiveTitle.text("Last Five");
     teamInfoTitle.text("Team Info");
 
+     // APPENDING THE HEADERS TO EACH OF THE COLUMNS
     table.append(teamPosTitle, teamBadgeTitle, teamNameTitle, teamPointsTitle, totalPlayedTitle, gamesWonTitle, gamesLostTitle, gamesDrawnTitle, lastFiveTitle)
+
+    // LOOP THROUGH ALL THE TEAMS
     for (var i = 0; i < response.response[0].league.standings[0].length; i++) {
   
     var tr = [];
@@ -52,6 +54,8 @@ $.ajax(settings).done(function (response) {
     var gamesLost = $("<td>");
     var lastFive = $("<td>");
     var teamInfo = $("<button>");
+
+    // ATTACH INFO FOR ALL THE TEAMS IN TABLE FORMAT 
 
       tr[i] = $("<tr>")
       teamPosition.text(response.response[0].league.standings[0][i].rank);
@@ -91,6 +95,7 @@ $.ajax(settings).done(function (response) {
 
     }
 
+    // SECOND CALL FROM SAME API TO GET TEAM INFO FOR MODAL
     $(".info").on("click", function(e) {
       var element = e.target.getAttribute("data-id");
       const request = {
@@ -113,6 +118,7 @@ $.ajax(settings).done(function (response) {
       })
     })
 
+    // HIDES THE FAV TEAM DIV IF NO TEAM IS SELECTED
     if(localStorage.getItem("favTeam") !== null) {
       $("#favCard").attr("style","display: block;");
       $(".card-title").text("Favourite Team:  " + localStorage.getItem("favTeam"));
@@ -120,6 +126,7 @@ $.ajax(settings).done(function (response) {
 
 });
 
+// TAKING IN USER'S FAV TEAM CHOICE AND SAVING / RETRIEVING FORM LOCAL STORAGE
 $(".submit-btn").on("click", function() {
   var theTeam = $(".fave-team").val().trim().toUpperCase();
   localStorage.setItem("favTeam", theTeam);
@@ -130,17 +137,16 @@ $(".submit-btn").on("click", function() {
   $(".fave-team").val("");
 })
 
-var giphyURL = "https://api.giphy.com/v1/gifs/search?&q=premierleague&api_key=2kOmKpYTiUlrDGZjUdtf3NJ6MfIg8snc";
+// 2ND API CALL TO GENERATE FOOTBALL GIFS TO THE PAGE
 
+var giphyURL = "https://api.giphy.com/v1/gifs/search?&q=premierleague&api_key=2kOmKpYTiUlrDGZjUdtf3NJ6MfIg8snc";
 var gifsDiv = $(".gifs")
 
 $.ajax({
   url: giphyURL,
   method: "GET",
-}).then(function(response) {
-  console.log(response);
-  
-
+}).then(function(response) {  
+  // select  6 gifs to display
   for (let i = 12; i <= 18; i++) {
     var giphURL = response.data[i].images.fixed_height.url
     var displayedGif = $("<img/>")

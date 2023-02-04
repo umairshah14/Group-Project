@@ -87,6 +87,7 @@ body{
   .modal-body {
     display:inline-block;
     text-align: center;
+    background-color: #292929;
     
   }
 
@@ -96,8 +97,13 @@ body{
     font-size: xx-large;
   }
 
+  .modal-footer {
+    background-color: #292929;
+  }
   .modal-header {
     display:flex;
+    background-color: #292929;
+    color: white;
   }
   
   /* SOCIAL MEDIA ICONS */
@@ -226,4 +232,18 @@ table {
 .card-title{
     border: solid;
     border-radius: 6px
+}
+
+#stadNameModal, #teamCityModal, #teamCodeModal{
+    background-color: rgb(222, 222, 222);
+    border: solid;
+    border-radius: 15px;
+    margin: 19px
+}
+
+.blur {
+    box-shadow: 0px 0px 20px 20px rgba(255,255,255,1);
+    text-shadow: 0px 0px 10px rgba(51, 51, 51, 0.9);
+    transform: scale(0.9);
+    opacity: 0.6;
 }
