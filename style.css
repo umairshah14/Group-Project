@@ -32,7 +32,8 @@ body{
 }
 
 .fave-team {
-    border-radius: 8px;
+    margin-left: 8px;
+    margin-bottom: auto;
 }
 
 /* FAVE TEAM BTN  */
@@ -40,14 +41,14 @@ body{
 .submit-btn {
   background-color: #3D195B; 
   border: none;
-  border-radius: 8px;
+  border-radius: 15px;
   color: white;
   /* padding: 9px 30px; */
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 200px;
+  width: 415px;
   height: 30px;
 }
 
@@ -86,11 +87,23 @@ body{
   .modal-body {
     display:inline-block;
     text-align: center;
+    background-color: #292929;
     
   }
 
+  .modal-title{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: xx-large;
+  }
+
+  .modal-footer {
+    background-color: #292929;
+  }
   .modal-header {
     display:flex;
+    background-color: #292929;
+    color: white;
   }
   
   /* SOCIAL MEDIA ICONS */
@@ -214,4 +227,23 @@ table {
     padding-left: 10px;
     padding-right: 10px;
     height: 30px;
+}
+
+.card-title{
+    border: solid;
+    border-radius: 6px
+}
+
+#stadNameModal, #teamCityModal, #teamCodeModal{
+    background-color: rgb(222, 222, 222);
+    border: solid;
+    border-radius: 15px;
+    margin: 19px
+}
+
+.blur {
+    box-shadow: 0px 0px 20px 20px rgba(255,255,255,1);
+    text-shadow: 0px 0px 10px rgba(51, 51, 51, 0.9);
+    transform: scale(0.9);
+    opacity: 0.6;
 }

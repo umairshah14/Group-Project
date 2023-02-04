@@ -16,7 +16,7 @@
 		<header>
 			<div class="subheader">
 				<div class="center">
-					<img src="./assets/images/premier-league-lion.png"class="title-img">
+					<img src="./assets/images/premier-league-lion.png" class="title-img">
 				</div>
 				<h2 style="color:#3D195B;" id="sub-h-1">PREMIER LEAGUE SEASON 2022-2023</h2>
 				<br>
@@ -24,14 +24,39 @@
 				<div class="center">
 					<div id="team-input">
 						<div class="">
-							<input type="text" class="fave-team" placeholder="Favourite team">
+							<!-- <input type="text" class="fave-team" placeholder="Favourite team"> -->
+							<fieldset class="center">
+								<label for="number" placeholder="Select team">Select your favourite team: </label>
+								<br>
+								<select name="number" id="number" class="fave-team">
+									<option>Arsenal</option>
+									<option>Aston Villa</option>
+									<option>Bournemouth</option>
+									<option>Brentford</option>
+									<option>Brighton & Hove Albion</option>
+									<option>Chelsea</option>
+									<option>Crystal Palace</option>
+									<option>Everton</option>
+									<option>Fulham</option>
+									<option>Leicester</option>
+									<option>Leeds</option>
+									<option>Liverpool</option>
+									<option>Manchester City</option>
+									<option>Manchester Utd</option>
+									<option>Newcastle Utd</option>
+									<option>Nottingham Forest</option>
+									<option>Southampton</option>
+									<option>Tottenham Hotspur</option>
+									<option>Westham</option>
+									<option>Wolverhampton Wanderes</option>
+
+								</select>
+							</fieldset>
 							<button class="submit-btn">Submit</button>
 							<br>
 							<br>
 							<div class="center" id="favCard" style="display:none">
-								<div class="card favTeam center" style=" margin-left: 5px; border-radius: 8px; color:#3D195B; border-color: #3D195B;">
-									  <h5 class="card-title" style="text-align: center;"></h5>
-								</div>
+								<h5 class="card-title" style="text-align: center;"></h5>
 							</div>
 						</div>
 					</div>
@@ -39,10 +64,10 @@
 				<div>
 					<div class="alert alert-success" role="alert">
 						Green = Qualify for Champions League
-					  </div>
-					  <div class="alert alert-danger" role="alert">
+					</div>
+					<div class="alert alert-danger" role="alert">
 						Red = Relegation to Championship
-					  </div>
+					</div>
 				</div>
 			</div>
 		</header>
@@ -63,12 +88,9 @@
 	<div class="modal fade" id="teamInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content ">
 				<div class="modal-header">
-					<h5 class="modal-title" id="teamNameModal">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<h5 class="modal-title " id="teamNameModal">Modal title</h5>
 				</div>
 				<div class="modal-body">
 					<img id="teamLogoModal" />
@@ -86,7 +108,7 @@
 	</div>
 
 	<div class="gifs">
-		<!-- DYNAMICALLY GENERATE GIFS HERE USING API -->	
+		<!-- DYNAMICALLY GENERATE GIFS HERE USING API -->
 	</div>
 
 	<div class="social-wrapper">
@@ -102,7 +124,8 @@
 			</li>
 
 			<li>
-				<a href="mailto:baz.hardacre@gmail.com" target="_blank" alt="Gmail Logo" class="fa-solid fa-envelope"></a>
+				<a href="mailto:baz.hardacre@gmail.com" target="_blank" alt="Gmail Logo"
+					class="fa-solid fa-envelope"></a>
 			</li>
 		</ul>
 	</div>
@@ -111,6 +134,8 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+		integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 		crossorigin="anonymous"></script>
