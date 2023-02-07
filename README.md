@@ -13,8 +13,8 @@ We created this repository to hold the submission for the week9 group-project ch
 # Website
 Below is a screenshot of what the project should look like when opened in the browser 
 
-![screenshot of the project](./assets/images/Screenshot%202023-02-04%20at%2003.23.25.png)
-![screenshot of the project](./assets/images/Screenshot%202023-02-04%20at%2003.24.10.png)
+![screenshot of the project](./assets/images/Screenshot%202023-02-07%20at%2018.28.54.png)
+![screenshot of the project](./assets/images/Screenshot%202023-02-07%20at%2018.29.06.png)
 
 # Built with
  * HTML
@@ -27,11 +27,11 @@ Below is a screenshot of what the project should look like when opened in the br
 
 ## Usage
 
-To use and try out this project, first clone the repository from GitHub with the following link: //ENTER LINK HERE// and then open a local server to view
+To use and try out this project, first clone the repository from GitHub with the following link: https://github.com/umairshah14/Premier-League-Info.git and then open a local server to view
 
 OR
 
-visit the live deployed application at: //ENTER LINK HERE//
+visit the live deployed application at: https://umairshah14.github.io/Premier-League-Info/
 
 # Contributions
 Barry Hardacre, Adam Seville, Umair Shah, Zeynep Bayazitoglu and Bilgin Celiktas
