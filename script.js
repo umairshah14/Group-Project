@@ -33,8 +33,8 @@ $.ajax(settings).done(function (response) {
     teamPointsTitle.text("Points");
     totalPlayedTitle.text("Total Played");
     gamesWonTitle.text("Won");
-    gamesDrawnTitle.text("Drawn");
-    gamesLostTitle.text("Lost");
+    gamesDrawnTitle.text("Lost");
+    gamesLostTitle.text("Drawn");
     lastFiveTitle.text("Last Five");
     teamInfoTitle.text("Team Info");
 
@@ -52,6 +52,7 @@ $.ajax(settings).done(function (response) {
     var gamesWon = $("<td>");
     var gamesDrawn = $("<td>");
     var gamesLost = $("<td>");
+    var teamImgTD = $("<td>");
     var lastFive = $("<td>");
     var teamInfo = $("<button>");
 
@@ -64,7 +65,8 @@ $.ajax(settings).done(function (response) {
       var teamImg = $("<img>")
       teamImg.attr("src", teamIconLink);
       teamImg.addClass("smallIcon")
-      tr[i].append(teamImg);
+      teamImgTD.append(teamImg)
+      tr[i].append(teamImgTD);
       teamName.text(response.response[0].league.standings[0][i].team.name);
       tr[i].append(teamName)
       teamPoints.text(response.response[0].league.standings[0][i].points)
